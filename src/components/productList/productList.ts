@@ -43,7 +43,7 @@ class ProductList extends HTMLElement {
                 productCard.setAttribute(ProductAttribute.description, product.description);
                 productCard.setAttribute(ProductAttribute.category, product.category);
                 productCard.setAttribute(ProductAttribute.price, product.price);
-                productCard.setAttribute(ProductAttribute.rating, String(product.rating.rate));
+                productCard.setAttribute(ProductAttribute.rating, product.rating.rate ? product.rating.rate : product.rating);
                 
                 container?.appendChild(productCard);
             });

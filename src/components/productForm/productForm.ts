@@ -45,7 +45,7 @@ class ProductForm extends HTMLElement {
                 const image = (form.querySelector('#product-image') as HTMLInputElement).value;
                 const productId = new Date().getTime();
 
-                const product = this.ownerDocument.createElement('task-item') as ProductCard;
+                const product = this.ownerDocument.createElement('product-card') as ProductCard;
 
                 product.setAttribute(ProductAttribute.uid, String(productId));
                 product.setAttribute(ProductAttribute.producttitle, title);
