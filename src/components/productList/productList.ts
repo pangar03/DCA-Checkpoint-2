@@ -24,8 +24,6 @@ class ProductList extends HTMLElement {
             `;
 
             const container = this.shadowRoot?.querySelector('.product-list');
-            console.log('CONTAINER', container);
-            console.log('PRODUCTS !!', this.products);
             
             const data = appState.products;
             data.forEach((product: any) => {
@@ -41,7 +39,7 @@ class ProductList extends HTMLElement {
                 container?.appendChild(productCard);
             });
         }
-        
+
         const cssProductList = document.createElement('style');
         cssProductList.innerHTML = styles;
         this.shadowRoot?.appendChild(cssProductList);

@@ -15,3 +15,10 @@ export const addProduct = (payload: any) => {
         payload,
     }
 };
+
+export const removeProduct = (payload: any) => {
+    return {
+        action: 'REMOVEPRODUCT',
+        payload,
+    }
+}

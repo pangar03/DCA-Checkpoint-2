@@ -1,5 +1,6 @@
 import styles from './product.css';
 import { addObserver, appState, dispatch } from '../../store/index'
+import { removeProduct } from '../../store/actions';
 
 export enum Attribute {
     'uid' = 'uid',
@@ -66,9 +67,14 @@ class ProductCard extends HTMLElement {
                         <p class="product-card__info-price">$${this.price}</p>
                         <p class="product-card__info-rating">Rating: ${this.rating}/5</p>
                     </div>
+                    <button class="delete">Delete</button>
                 </div>
             `;
         }
+
+        this.shadowRoot?.querySelector('.delete')?.addEventListener('click', () => { 
+            dispatch(removeProduct(this)); 
+        });
 
         // CSS
         const cssProduct = document.createElement('style');

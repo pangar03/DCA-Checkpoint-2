@@ -10,6 +10,7 @@ export type Observer = { render: () => void } & HTMLElement;
 export enum Actions {
     'GETPRODUCTS' = 'GETPRODUCTS',
     'ADDPRODUCT' = 'ADDPRODUCT',
+    'REMOVEPRODUCT' = 'REMOVEPRODUCT',
 }
 
 export enum Screens {
