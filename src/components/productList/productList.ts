@@ -13,38 +13,35 @@ class ProductList extends HTMLElement {
         addObserver(this);
     }
 
-    getProducts() {
-        const data = appState.products;        
-        data.forEach((product: any) => {
-            const productCard = document.createElement('product-card') as ProductCard;
-            productCard.setAttribute(ProductAttribute.uid, String(product.id));
-            productCard.setAttribute(ProductAttribute.image, product.image);
-            productCard.setAttribute(ProductAttribute.producttitle, product.title);
-            productCard.setAttribute(ProductAttribute.description, product.description);
-            productCard.setAttribute(ProductAttribute.category, product.category);
-            productCard.setAttribute(ProductAttribute.price, product.price);
-            productCard.setAttribute(ProductAttribute.rating, String(product.rating.rate));
-            this.products?.push(productCard);
-        });
-    }
-
     connectedCallback() {
         this.render();
-        this.getProducts();
     }
 
-    render() {
+    render() { 
         if(this.shadowRoot){
             this.shadowRoot.innerHTML = `
-                <section class="task-list"></section>
+                <section class="product-list"></section>
             `;
+
+            const container = this.shadowRoot?.querySelector('.product-list');
+            console.log('CONTAINER', container);
+            console.log('PRODUCTS !!', this.products);
+            
+            const data = appState.products;
+            data.forEach((product: any) => {
+                const productCard = document.createElement('product-card') as ProductCard;
+                productCard.setAttribute(ProductAttribute.uid, String(product.id));
+                productCard.setAttribute(ProductAttribute.image, product.image);
+                productCard.setAttribute(ProductAttribute.producttitle, product.title);
+                productCard.setAttribute(ProductAttribute.description, product.description);
+                productCard.setAttribute(ProductAttribute.category, product.category);
+                productCard.setAttribute(ProductAttribute.price, product.price);
+                productCard.setAttribute(ProductAttribute.rating, String(product.rating.rate));
+                
+                container?.appendChild(productCard);
+            });
         }
-
-        const container = this.shadowRoot?.querySelector('.task-list');
-        this.products?.forEach((product) =>{
-            container?.appendChild(product);
-        })
-
+        
         const cssProductList = document.createElement('style');
         cssProductList.innerHTML = styles;
         this.shadowRoot?.appendChild(cssProductList);

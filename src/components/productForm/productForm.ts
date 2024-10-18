@@ -22,11 +22,11 @@ class ProductForm extends HTMLElement {
                     <label for="product-description">Description</label>
                     <input type="text" id="product-description" name="product-description" required>
                     <label for="product-price">Price</label>
-                    <input type="number" id="product-price" name="product-price" required>
+                    <input type="number" id="product-price" name="product-price" min="0" required>
                     <label for="product-category">Category</label>
                     <input type="text" id="product-category" name="product-category" required>
                     <label for="product-rating">Rating</label>
-                    <input type="number" id="product-rating" name="product-rating" required>
+                    <input type="number" id="product-rating" name="product-rating" min="0" max="5" required>
                     <label for="product-image">Image</label>
                     <input type="text" id="product-image" name="product-image" required>
                     <button type="submit">Create Product</button>

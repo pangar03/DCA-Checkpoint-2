@@ -12,9 +12,11 @@ export const reducer = (currentAction: any, currentState: any) => {
             }
 
         case Actions.ADDPRODUCT:
+            console.log('PAYLOAD', payload);
+            
         return {
             ...currentState,
-            taskList: [...currentState.taskList, payload],
+            taskList: [...currentState.products, payload],
         };
 
         default: 

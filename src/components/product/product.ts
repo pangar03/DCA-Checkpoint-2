@@ -1,6 +1,4 @@
 import styles from './product.css';
-
-import { navigate } from '../../store/actions';
 import { addObserver, appState, dispatch } from '../../store/index'
 
 export enum Attribute {

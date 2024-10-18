@@ -5,7 +5,7 @@ import "../components/productList/productList";
 import ProductForm from "../components/productForm/productForm";
 import "../components/productForm/productForm";
 
-import { getProductsRedux, navigate } from '../store/actions';
+import { getProductsRedux } from '../store/actions';
 import { addObserver, appState, dispatch } from '../store/index'
 
 import storage from "../utils/storage";
