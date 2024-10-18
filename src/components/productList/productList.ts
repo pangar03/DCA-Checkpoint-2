@@ -3,6 +3,8 @@ import ProductCard, {Attribute as ProductAttribute} from "../product/product";
 import { addObserver } from "../../store/index";
 import { AppState } from "../../types/store";
 import { appState } from "../../store/index";
+import { getProductsRedux } from '../../store/actions';
+import { dispatch } from '../../store/index';
 
 class ProductList extends HTMLElement {
     products?: ProductCard[];
@@ -13,8 +15,15 @@ class ProductList extends HTMLElement {
         addObserver(this);
     }
 
-    connectedCallback() {
+    async connectedCallback() {
         this.render();
+        if(appState.products === undefined || appState.products.length === 0) { 
+            const action = await getProductsRedux();
+            dispatch(action);   
+            console.log(action);
+            console.log('appstate', appState.products);
+            console.log('EJECUTANDO GETPRODUCTS');              
+        }
     }
 
     render() { 

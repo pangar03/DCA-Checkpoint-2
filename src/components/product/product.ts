@@ -73,7 +73,7 @@ class ProductCard extends HTMLElement {
         }
 
         this.shadowRoot?.querySelector('.delete')?.addEventListener('click', () => { 
-            dispatch(removeProduct(this)); 
+            dispatch(removeProduct(this.uid)); 
         });
 
         // CSS

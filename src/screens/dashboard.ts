@@ -13,8 +13,6 @@ import storage from "../utils/storage";
 import styles from './dashboard.css';
 
 class Dashboard extends HTMLElement {
-    products: ProductCard[] = [];
-
     constructor()  {
         super();
         this.attachShadow({ mode: 'open' });
@@ -25,13 +23,6 @@ class Dashboard extends HTMLElement {
         this.render();
         console.log('DASHBOARD CONNECTED'); 
         console.log('state', appState.products);    
-        if(appState.products === undefined || appState.products.length === 0) { 
-            const action = await getProductsRedux();
-            dispatch(action);   
-            console.log(action);
-            console.log('appstate', appState.products);
-            console.log('EJECUTANDO GETPRODUCTS');              
-        }
     }
 
     render() {

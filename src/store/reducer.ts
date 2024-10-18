@@ -17,14 +17,17 @@ export const reducer = (currentAction: any, currentState: any) => {
             
         return {
             ...currentState,
-            taskList: [...currentState.products, payload],
+            products: [...currentState.products, payload],
         };
 
         case Actions.REMOVEPRODUCT:
+            console.log(payload.id);
+            
             return {
                 ...currentState,
-                products: currentState.products.filter((product: ProductCard) => product.uid !== payload.uid)
+                products: currentState.products.filter((product: ProductCard) => product.id !== payload)
             };
+            
 
         default: 
             return currentState;
