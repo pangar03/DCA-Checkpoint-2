@@ -17,11 +17,11 @@ export const reducer = (currentAction: any, currentState: any) => {
             
         return {
             ...currentState,
-            products: [...currentState.products, payload],
+            taskList: [...currentState.products, payload],
         };
 
         case Actions.REMOVEPRODUCT:
-            console.log(payload.id);
+            console.log(payload);
             
             return {
                 ...currentState,
